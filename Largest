@@ -1,0 +1,20 @@
+import heapq
+import math
+import sys
+
+numbers = [1, 7,2,10,20,4]
+largest = (heapq.nlargest(3, numbers))
+largest.reverse()
+
+#print(largest)
+
+for l in range(len(largest)):
+    for n in range(len(numbers)):
+        if largest[l] == numbers[n]:
+            if numbers[n] % 2 != 0:
+                numbers[n] = largest[l] / 2
+            else: numbers[n] = math.trunc(largest[l] / 2)
+
+print(numbers)
+
+# sys.stdout.write(" ".join(str(x) for x in numbers))
